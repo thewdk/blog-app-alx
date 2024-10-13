@@ -1,9 +1,17 @@
-import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Signup from './pages/Signup'
 
 export default function App() {
   return (
-    <h1 className='text-3xl text-red-500'>
-      app
-    </h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/about' element={<About />}/>
+        <Route path='/dashboard' element={<Dashboard />}/>
+        <Route path='/projects' element={<Projects />}/>
+        <Route path='/sign-in' element={<Signin />}/>
+        <Route path='/sign-up' element={<Signup />}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
