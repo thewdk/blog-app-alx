@@ -1,9 +1,12 @@
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  server: {
-    hmr: {
-      overlay: false,  // Optional: disable the error overlay
-    },
+    server: {
+      watch: {
+        usePolling: true,
+      },
   },
+  plugins: [react()],
 })
