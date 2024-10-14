@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "express": "^4.21.1",
+    "flowbite-react": "^0.10.2",
+    "mongoose": "^8.7.1",
+    "nodemon": "^3.1.7",
+    "react-router-dom": "^6.27.0"
+  },
+  "name": "blog-app",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev":  "nodemon api/index.js --legacy-watch --delay 500ms CHOKIDAR_USEPOLLING=true WATCHPACK_POLLING=true react-scripts start",
+    "start": "node api/index.js WATCHPACK_POLLING=true react-scripts start",
+    "start:polling": "nodemon api/index.js --polling"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
