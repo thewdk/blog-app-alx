@@ -1,8 +1,15 @@
 POST http://localhost:3000/api/auth/signup
 Content-Type: application/json
 
+# {
+#     "username": "user1",
+#     "email": "user1@gmail.com",
+#     "password": "esther"
+# }
+
+
 {
-    "username": "user1",
-    "email": "user1@gmail.com",
-    "password": "esther"
+    "username": "dfdfdf",
+    "email": "",
+    "password": ""
 }
