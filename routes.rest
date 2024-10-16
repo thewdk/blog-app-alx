@@ -1,15 +1,13 @@
-POST http://localhost:3000/api/auth/signup
+POST http://localhost:3000/api/auth/signin
 Content-Type: application/json
 
-# {
-#     "username": "user1",
-#     "email": "user1@gmail.com",
-#     "password": "esther"
-# }
-
-
 {
-    "username": "dfdfdf",
-    "email": "",
-    "password": ""
+    "email": "user1@gmail.com",
+    "password": "esther"
 }
+
+
+# {
+#     "email": "",
+#     "password": ""
+# }
