@@ -10,8 +10,7 @@ export default function DashProfile() {
     const [imageFileUrl, setImageFileUrl] = useState(null)
     const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
     const [imageFileUploadError, setImageFileUploadError] = useState(null);
-    console.log(imageFileUploadError, imageFileUploadProgress);
-    
+
     const filePickerRef = useRef();
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -28,6 +27,7 @@ export default function DashProfile() {
     }, [imageFile]);
 
     const uploadImage = async () => {
+        setImageFileUploadError(null)
         const storage = getStorage(app);
         const fileName = new Date().getTime() + imageFile.name;
         const storageRef = ref(storage, fileName);
@@ -41,6 +41,9 @@ export default function DashProfile() {
             },
             (error) => {
                 setImageFileUploadError('Could not upload image (File must be less than 2MB)');
+                setImageFileUploadProgress(null);
+                setImageFile(null);
+                setImageFileUrl(null);
             },
             () => {
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
