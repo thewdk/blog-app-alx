@@ -1,3 +1,4 @@
+# SIGNUP
 # POST http://localhost:3000/api/auth/signup
 # Content-Type: application/json
 
@@ -9,9 +10,7 @@
 
 
 
-
-
-
+# SIGNIN
 # POST http://localhost:3000/api/auth/signin
 # Content-Type: application/json
 
@@ -21,14 +20,18 @@
 # }
 
 
+
+
+# UPDATE
+# PUT http://localhost:3000/api/user/update/670e40a99a6023fe8af07345
+# Content-Type: application/json
+
 # {
-#     "email": "",
-#     "password": ""
+#    "username": "use1"
 # }
 
-PUT http://localhost:3000/api/user/update/670e40a99a6023fe8af07345
-Content-Type: application/json
 
-{
-   "username": "use1"
-}
+
+# DELETE
+# PUT http://localhost:3000/api/user/delete/670e40a99a6023fe8af07345
+# Content-Type: application/json
