@@ -44,7 +44,7 @@ export const signin = async (req, res, next) => {
         email === '' || 
         password === ''
     ) {
-        next(errorHandler(404, 'All fields are required'));
+        next(errorHandler(400, 'All fields are required'));
     }
 
     try {
@@ -77,7 +77,7 @@ export const google = async (req, res, next) => {
     try {
         const user = await User.findOne({email});
         if (user) {
-            const token = jwt.sign( {id: user._id}, process.evn.JWT_SECRET);
+            const token = jwt.sign( {id: user._id}, process.env.JWT_SECRET);
             const {password, ...rest} = user._doc;
             res.status(200).cookie('access_token', token, {
                 httpOnly: true,

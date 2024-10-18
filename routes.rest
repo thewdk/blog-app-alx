@@ -26,9 +26,9 @@
 #     "password": ""
 # }
 
-PUT http://localhost:3000/api/user/update
+PUT http://localhost:3000/api/user/update/670e40a99a6023fe8af07345
 Content-Type: application/json
 
 {
-   "username": "us1"
+   "username": "use1"
 }
