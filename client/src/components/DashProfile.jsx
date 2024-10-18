@@ -3,12 +3,12 @@ import React, { useEffect, useRef, useState } from 'react'
 import {useSelector} from 'react-redux'
 import {getDownloadURL, getStorage, uploadBytesResumable, ref} from 'firebase/storage'
 import { app } from "../firebase";
-import { updateStart, updateSuccess, updateFailure } from "../redux/user/userSlice";
+import { updateStart, updateSuccess, updateFailure, deleteUserStart, deleteUserSuccess, deleteUserFailure } from "../redux/user/userSlice";
 import { useDispatch } from 'react-redux'
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 
 export default function DashProfile() {
-    const {currentUser} = useSelector((state) => state.user)
+    const {currentUser, error} = useSelector((state) => state.user)
     const [imageFile, setImageFile] = useState(null)
     const [imageFileUrl, setImageFileUrl] = useState(null)
     const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
@@ -102,6 +102,20 @@ export default function DashProfile() {
     };
     const handleDeleteUser = async () => {
         setShowModal(false);
+        try {
+            dispatch(deleteUserStart());
+            const res = await fetch(`api/user/delete/${currentUser._id}`, {
+                methoD: 'DELETE',
+            });
+            const data = await res.json();
+            if (!res.ok) {
+                dispatch(deleteUserFailure(data.message));
+            } else {
+                dispatch(deleteUserSuccess(data));
+            }
+        } catch (error) {
+            dispatch(deleteUserFailure(error.message))
+        }
     }
   return (
     <div className='max-w-lg mx-auto p-3 w-full '>
@@ -131,6 +145,11 @@ export default function DashProfile() {
       {updateUserError && (
         <Alert color='failure' className='mt=5'>
             {updateUserError}
+        </Alert>
+      )}
+      {error && (
+        <Alert color='failure' className='mt=5'>
+            {error}
         </Alert>
       )}
       {showModal && (
