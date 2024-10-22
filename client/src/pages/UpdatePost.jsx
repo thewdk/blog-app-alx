@@ -1,5 +1,5 @@
 import { Button, FileInput, Select, TextInput, Alert } from 'flowbite-react'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage'
@@ -13,7 +13,7 @@ export default function UpdatePost() {
   const [imageUploadError, setImageUploadError] = useState(null);
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState(null);
-  const {postId} = useParams()
+  const {postId} = useParams();
 
   const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.user);
@@ -44,6 +44,7 @@ export default function UpdatePost() {
   const handleUploadImage = async () => {
     try {
       if (!file) {
+        setImageUploadError('Please select an image');
         return;
       }
       const storage = getStorage(app);

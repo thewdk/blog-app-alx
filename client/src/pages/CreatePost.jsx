@@ -18,6 +18,7 @@ export default function CreatePost() {
   const handleUploadImage = async () => {
     try {
       if (!file) {
+        setImageUploadError('Please select an image');
         return;
       }
       const storage = getStorage(app);
