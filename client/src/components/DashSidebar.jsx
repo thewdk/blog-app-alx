@@ -1,7 +1,7 @@
 import {useEffect,useState} from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Sidebar } from 'flowbite-react'
-import { HiUser, HiArrowSmRight, HiDocumentText, HiOutlineUserGroup } from 'react-icons/hi'
+import { HiUser, HiArrowSmRight, HiDocumentText, HiOutlineUserGroup, HiAnnotation } from 'react-icons/hi'
 import { signOutSuccess } from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
