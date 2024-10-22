@@ -13,19 +13,22 @@ export default function DashPosts() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`)
-        const data = await res.json()
-        if (res.ok){
-          setUserPosts(data.posts)
+        const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`);
+        const data = await res.json();
+        if (res.ok) {
+          setUserPosts(data.posts);
+          if (data.posts.length < 9) {
+            setShowMore(false);
+          }
         }
       } catch (error) {
-        
+        console.log(error.message);
       }
     };
     if (currentUser.isAdmin) {
       fetchPosts();
     }
-  },[currentUser._id]);
+  }, [currentUser._id]);
 
   const handleShowMore = async () => {
     const startIndex = userPosts.length;
@@ -79,15 +82,19 @@ export default function DashPosts() {
               <Table.HeadCell>post title</Table.HeadCell>
               <Table.HeadCell>category</Table.HeadCell>
               <Table.HeadCell>delete</Table.HeadCell>
-              <span>
-              <Table.HeadCell>Edit</Table.HeadCell>
-              </span>
+             
+              <Table.HeadCell>
+                <span>
+                Edit
+                </span>
+                </Table.HeadCell>
+              
             </Table.Head>
             {userPosts.map((post) => (
-              <Table.Body className='divide-y'>
-                <Table.Row  className='bg-white dark:border-gray-700 dark:bg-gray-800'>
+              <Table.Body className='divide-y' >
+                <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
                   <Table.Cell>
-                    {new Date(post.updateAt).toLocaleDateString()}
+                    {new Date(post.updatedAt).toLocaleDateString()}
                   </Table.Cell>
                   <Table.Cell>
                     <Link to={`/post/${post.slug}`}>
