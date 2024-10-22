@@ -2,6 +2,8 @@ import React from 'react'
 import { Button, Spinner } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import CommentSection from '../components/CommentSection';
+
 
 
 export default function PostPage() {

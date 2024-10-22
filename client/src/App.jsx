@@ -16,6 +16,7 @@ import PostPage from './pages/PostPage'
 export default function App() {
   return (
     <BrowserRouter> 
+    <ScrollToTop />
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
