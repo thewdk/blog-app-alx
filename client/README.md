@@ -12,7 +12,6 @@ A full-stack blog application built using the MERN (MongoDB, Express, React, Nod
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Technologies Used](#technologies-used)
-- [Environment Variables](#environment-variables)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -113,32 +112,10 @@ blog-app/
 ### **Development Tools**
 - **Git**: Version control system.
 - **Nodemon**: Automatically restarts the Node.js server on file changes.
-- **Vercel**: For frontend deployment.
+- **Render**: For frontend deployment.
   
 ---
 
-## **Environment Variables**
-
-Create a `.env` file in the `api` and `client` directories with the following variables:
-
-### **Backend (`api/.env`):**
-```bash
-MONGO_URI=<your_mongoDB_atlas_uri>
-JWT_SECRET=<your_jwt_secret>
-PORT=3000
-```
-
-### **Frontend (`client/.env`):**
-```bash
-VITE_FIREBASE_API_KEY=<your_firebase_api_key>
-VITE_AUTH_DOMAIN=<your_firebase_auth_domain>
-VITE_PROJECT_ID=<your_firebase_project_id>
-VITE_STORAGE_BUCKET=<your_firebase_storage_bucket>
-VITE_MESSAGING_SENDER_ID=<your_firebase_messaging_sender_id>
-VITE_APP_ID=<your_firebase_app_id>
-```
-
----
 
 ## **Contributing**
 
